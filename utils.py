@@ -12,7 +12,11 @@ from dotenv import load_dotenv
 dir_path = Path.cwd()
 env_path = (dir_path / ".env").resolve()
 load_dotenv(env_path)
-
+try:
+    OPENAI_KEY = os.environ.get("OPENAI_API_KEY")
+except:
+    OPENAI_KEY = st.secrets['OPENAI_API_KEY']
+    
 logger = get_logger('Langchain-Chatbot')
 
 #decorator
@@ -93,7 +97,7 @@ def configure_llm():
         )
 
     if llm_opt == "gpt-4o":
-        llm = ChatOpenAI(model_name=llm_opt, temperature=0, streaming=True, api_key=os.environ.get("OPENAI_API_KEY")) #st.secrets["OPENAI_API_KEY"]
+        llm = ChatOpenAI(model_name=llm_opt, temperature=0, streaming=True, api_key=OPENAI_KEY)
     else:
         model, openai_api_key = choose_custom_openai_key()
         llm = ChatOpenAI(model_name=model, temperature=0, streaming=True, api_key=openai_api_key)
