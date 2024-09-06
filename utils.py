@@ -16,6 +16,11 @@ try:
     OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 except:
     OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
+
+@st.cache_resource(show_spinner=False)
+def init_openai():
+    # initialize connection to OpenAI
+    openai.api_key = OPENAI_API_KEY
     
 logger = get_logger('Langchain-Chatbot')
 
