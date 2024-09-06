@@ -43,7 +43,7 @@ class CustomDocChatbot:
                 file_path = os.path.join(data_folder, filename)
                 loader = Docx2txtLoader(file_path)
                 docs.extend(loader.load())
-        
+        print("DOCS!:", len(docs))
         # Split documents and store in vector db
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=1000,
