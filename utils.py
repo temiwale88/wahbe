@@ -100,7 +100,7 @@ def configure_llm():
         llm = ChatOpenAI(model_name=llm_opt, temperature=0, streaming=True, api_key=OPENAI_KEY)
     else:
         model, openai_api_key = choose_custom_openai_key()
-        llm = ChatOpenAI(model_name=model, temperature=0, streaming=True, api_key=OPENAI_KEY)
+        llm = ChatOpenAI(model_name=model, temperature=0, streaming=True, api_key=openai_api_key)
     return llm
 
 def print_qa(cls, question, answer):
