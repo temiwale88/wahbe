@@ -34,8 +34,14 @@ class CustomDocChatbot:
 
     def setup_qa_chain(self):
         # Load documents from the 'data' folder
+        from py7zr import unpack_7zarchive
+        import shutil
+        
+        shutil.register_unpack_format('7zip', ['.7z'], unpack_7zarchive)
+        shutil.unpack_archive('data.7z', '.')
+
         docs = []
-        data_folder = 'data' 
+        data_folder = '.' 
 
         # Iterate through all .docx files in the data folder
         for filename in os.listdir(data_folder):
