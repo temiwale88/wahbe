@@ -12,10 +12,7 @@ from dotenv import load_dotenv
 dir_path = Path.cwd()
 env_path = (dir_path / ".env").resolve()
 load_dotenv(env_path)
-try:
-    OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-except:
-    OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
+OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
 
 @st.cache_resource(show_spinner=False)
 def init_openai():
