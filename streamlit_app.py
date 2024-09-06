@@ -35,7 +35,7 @@ class CustomDocChatbot:
     def setup_qa_chain(self):
         # Load documents from the 'data' folder
         docs = []
-        data_folder = '.'  # Specify your data folder path
+        data_folder = 'data' 
 
         # Iterate through all .docx files in the data folder
         for filename in os.listdir(data_folder):
