@@ -1,5 +1,5 @@
 streamlit
-openai==1.16.2
+openai==1.35.15
 python-dotenv
 py7zr
 langchain==0.2.9
